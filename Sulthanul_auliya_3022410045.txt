@@ -1,0 +1,92 @@
+==============================================================================
+DESKRIPSI KASUS DAN DATASET
+Tugas 1 - Data Preprocessing
+==============================================================================
+Pembuat Kasus : Sulthanul Auliya
+NIM           : 3022410045
+Topik         : Analisis Transaksi dan Kepuasan Pelanggan E-Commerce
+                "NusantaraMart" Periode Januari - Oktober 2026
+Catatan       : Data bersifat fiktif (dibuat dengan bantuan AI) untuk
+                keperluan pembelajaran.
+
+------------------------------------------------------------------------------
+A. LATAR BELAKANG KASUS
+------------------------------------------------------------------------------
+NusantaraMart merupakan platform perdagangan elektronik (e-commerce) yang
+melayani transaksi pelanggan di berbagai kota besar di Indonesia. Tim Data
+Analytics NusantaraMart baru saja mengekspor log transaksi pelanggan periode
+Januari hingga Oktober 2026 dari beberapa kanal sistem kasir dan aplikasi
+seluler yang belum terintegrasi penuh.
+
+Manajemen ingin mengevaluasi pola belanja, segmentasi pelanggan, serta
+faktor-faktor yang memengaruhi tingkat kepuasan pelanggan. Namun, dalam data
+mentah tersebut ditemukan banyak permasalahan kualitas data akibat input
+manual maupun gangguan sinkronisasi server antar kanal. Sebelum dianalisis
+lebih lanjut (misalnya pemodelan prediksi kepuasan belanja atau pengelompokan
+pelanggan), data wajib melalui tahapan Data Preprocessing secara menyeluruh.
+
+------------------------------------------------------------------------------
+B. DAFTAR FILE DATASET (1 FILE CSV)
+------------------------------------------------------------------------------
+1. dataset_transaksi_ecommerce_kotor_colab.csv : Data utama transaksi pelanggan
+                                                 e-commerce NusantaraMart
+                                                 (120 baris, 11 variabel).
+
+Dataset utama ini telah memenuhi ketentuan minimal 100 baris data dan 8
+variabel yang memadukan tipe data kategorik serta numerik, lengkap dengan
+berbagai kecacatan kualitas data untuk ditangani pada tahap Data Preprocessing.
+
+------------------------------------------------------------------------------
+C. KAMUS VARIABEL
+------------------------------------------------------------------------------
+[1] dataset_transaksi_ecommerce_kotor_colab.csv
+- ID_Transaksi      (kategorik/ID)      : kode unik transaksi pelanggan,
+                                          mis. TRX-1001
+- Tanggal_Transaksi (tanggal)           : tanggal terjadinya transaksi
+                                          (periode Jan - Okt 2026)
+- Usia_Pelanggan    (numerik)           : usia pelanggan dalam tahun
+                                          (rentang wajar: 17 - 100 tahun)
+- Jenis_Kelamin     (kategorik/nominal) : Laki-laki / Perempuan
+- Kota_Domisili     (kategorik/nominal) : Surabaya, Gresik, Sidoarjo,
+                                          Malang, Jakarta, Bandung
+- Kategori_Member   (kategorik/ordinal) : tingkatan keanggotaan berurutan
+                                          (Bronze < Silver < Gold < Platinum)
+- Kategori_Produk   (kategorik/nominal) : Elektronik, Fashion, Kesehatan &
+                                          Kecantikan, Rumah Tangga,
+                                          Makanan & Minuman
+- Jumlah_Beli       (numerik)           : kuantitas barang yang dibeli dalam
+                                          satu transaksi (minimal 1 unit)
+- Total_Belanja_IDR (numerik)           : total nominal pembayaran transaksi
+                                          dalam satuan Rupiah (bernilai > 0)
+- Rating_Kepuasan   (numerik/kontinu)   : skor penilaian kepuasan pelanggan
+                                          setelah transaksi (skala 1.0 - 5.0)
+- Metode_Pembayaran (kategorik/nominal) : kanal pembayaran yang digunakan
+                                          (E-Wallet, Transfer Bank, COD,
+                                          Kartu Kredit)
+
+------------------------------------------------------------------------------
+D. TUGAS UNTUK PARTNER
+------------------------------------------------------------------------------
+Lakukan Data Preprocessing pada seluruh dataset, lalu jelaskan setiap tahapan
+yang dikerjakan dengan format INPUT - PROSES - OUTPUT. Identifikasi sendiri
+masalah kualitas data yang ada, lalu tangani dengan teknik yang sesuai,
+antara lain:
+1. Data cleaning: penanganan missing value (pada variabel kategorik dan
+   numerik dengan menggunakan minimal statistik deskriptif seperti mean,
+   median, dan modus), penghapusan data duplikat (duplikat identik maupun
+   duplikat ID transaksi), pembersihan noise/nilai tidak valid (angka
+   negatif, nol, atau di luar skala logis), serta deteksi dan penanganan
+   outlier ekstrem.
+2. Konsistensi data: standardisasi penulisan kategori (spasi berlebih,
+   perbedaan huruf kapital, singkatan, dan salah ketik/typo), penyeragaman
+   format tanggal, serta penyesuaian tipe data antar variabel.
+3. Data transformation: encoding variabel kategorik (Ordinal Encoding untuk
+   kategori bertingkat dan One-Hot Encoding untuk kategori nominal),
+   ekstraksi fitur waktu, serta normalisasi/standardisasi skala pada variabel
+   numerik (Feature Scaling).
+4. Data reduction: penghapusan atribut pengenal unik yang tidak relevan
+   untuk pemodelan (ID_Transaksi) dan penyederhanaan fitur.
+Seluruh hasil pengerjaan (laporan preprocessing dalam format PDF, file
+program .ipynb, deskripsi kasus .txt, dan dataset awal .csv) dikumpulkan
+dalam satu folder repository GitHub.
+==============================================================================
